@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>2000s Style Website</title>
     <style>
         body {
-            background-color: #f0f0f0;
+            background: linear-gradient(to bottom, #800080, #e0b3ff);
+            background-attachment: fixed;
+            background-size: cover;
             font-family: Arial, sans-serif;
             color: #333333;
             text-align: center;
@@ -23,6 +24,7 @@
         td {
             border: 1px solid #000000;
             padding: 10px;
+            background-color: transparent;
         }
         .header {
             background-color: #0080ff;
@@ -32,13 +34,32 @@
             padding: 10px;
         }
         .content {
-            background-color: #ffffff;
+            background-color: transparent;
         }
         .footer {
             background-color: #0080ff;
             color: white;
             text-align: center;
             padding: 5px;
+        }
+        .banner {
+            width: 100%;
+            background-color: #ffcc00;
+            color: #000;
+            padding: 10px 0;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px #000;
+        }
+        .text-box {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #000;
+            background-color: #e0e0ff;
+        }
+        .signature {
+            margin-top: 20px;
+            font-style: italic;
         }
         .chunk {
             position: fixed;
@@ -52,28 +73,40 @@
         .hidden {
             display: none;
         }
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .gif-container img {
+            margin: 0 20px;
+        }
     </style>
 </head>
 <body>
+    <div class="banner">Welcome to My Website!!</div>
     <table>
         <tr>
-            <td colspan="2" class="header">Welcome to My 2000s Style Website</td>
-        </tr>
-        <tr>
             <td class="content">
-                <p>Check out this cool video:</p>
-                <video width="560" height="315" controls autoplay>
-                    <source src="video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <div class="gif-container">
+                    <img src="dancing_cat.gif" alt="Dancing Cat">
+                    <video width="560" height="315" controls autoplay>
+                        <source src="video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <img src="dancing_fish.gif" alt="Dancing Fish">
+                </div>
             </td>
         </tr>
         <tr>
-            <td colspan="2" class="footer">© 2000s Style Website - All rights reserved</td>
+            <td class="content text-box">
+                I found this vhs tape hidden far in the back of my mom closet among some of my work stuff from when i was a kid. The tape was completely fucked, so i went to a shop to get it restored and he charge me fucking 100 dollars for, what the FUCK!?!?! HE didnt even do a good job either, so i will NOT be going back there!! Then, I had to transfer it to a digital format which meant I had to buy a tv tuner card from those self righteous radioshack cunts  , bla bla bla. whole thing was a HUGE pain in the ass. its still kinda hard to make out a lot of the stuff in the vid, (blame the cunt guy who restored it! he sucks as his job!) BUT it's a cool peice of history, so I hope you enjoy my effort! long live LUCAS THE LION!!
+            </td>
         </tr>
     </table>
+    <div class="signature">- Jeffrey Patel</div>
 
-    <!-- Overlay Chunks -->
     <div class="chunk" style="top: 0%;"></div>
     <div class="chunk" style="top: 10%;"></div>
     <div class="chunk" style="top: 20%;"></div>
@@ -89,7 +122,7 @@
         function revealChunks() {
             const chunks = document.querySelectorAll('.chunk');
             chunks.forEach((chunk, index) => {
-                const delay = Math.random() * 500 + (index * 500); // Random delay with incremental base delay
+                const delay = Math.random() * 500 + (index * 500);
                 setTimeout(() => {
                     chunk.classList.add('hidden');
                 }, delay);
